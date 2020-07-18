@@ -67,7 +67,8 @@ namespace EyeScroller
             if (counter >= 10 && (DateTime.Now - lastSpace).TotalSeconds > 2)
             {
                 Logger.Log("Pressing Space");
-                injector.InjectKeyboardInput(new List<InjectedInputKeyboardInfo> { new InjectedInputKeyboardInfo { VirtualKey = (ushort)' ' } });
+                var key = ((ComboBoxItem)comboBox.SelectedItem).Content.ToString() == "Space" ? (ushort)' ' : (ushort)VirtualKey.Right;
+                injector.InjectKeyboardInput(new List<InjectedInputKeyboardInfo> { new InjectedInputKeyboardInfo { VirtualKey = key } });
                 lastSpace = DateTime.Now;
                 timer.Stop();
                 page.Background = new SolidColorBrush(Color.FromArgb(255, 50, 50, 50));
