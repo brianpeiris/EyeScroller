@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Diagnostics;
 
 namespace EyeScroller
 {
@@ -11,6 +12,7 @@ namespace EyeScroller
             {
                 output += " " + obj.ToString();
             }
+            Debug.WriteLine(output);
         }
     }
 }

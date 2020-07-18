@@ -6,11 +6,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <ComboBox x:Name="comboBox" Height="40" Width="140" Margin="10,10,0,0">
-        <ComboBoxItem Content="Space" IsSelected="True"/>
-        <ComboBoxItem Content="Right"/>
-    </ComboBox>
-
-
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignHeight="588" d:DesignWidth="923">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ComboBox x:Name="comboBox" Height="40" Width="140">
+                <ComboBoxItem Content="Scroll" IsSelected="True"/>
+                <ComboBoxItem Content="Space" />
+                <ComboBoxItem Content="Left/Right"/>
+            </ComboBox>
+            <Slider x:Name="scrollMultipllier"  Maximum="10" Minimum="0.1" StepFrequency="0.1" Value="1" Width="265" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" />
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="leftArea">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="&lt;" FontSize="200" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" x:Name="rightArea">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="&gt;" FontSize="200" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
 </Page>
